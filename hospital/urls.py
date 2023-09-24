@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from myapp import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 admin.site.site_header='CardioCare Heart Hospital Admin'
@@ -31,4 +32,6 @@ urlpatterns = [
     path('contactus', views.contactus, name="contactus"),
     path('read', views.read, name='read'),
     path('contact', views.contacts, name='contact'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+urlpatterns +=staticfiles_urlpatterns()
