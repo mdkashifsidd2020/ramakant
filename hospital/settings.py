@@ -84,9 +84,26 @@ WSGI_APPLICATION = 'hospital.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME' : 'djangodbonatlas1',
+        'ENFORCE_SCHEMA': True,  # Set to True if you want to enforce a schema
+        'CLIENT': {
+            'host': 'mongodb+srv://mks:Nsti12345@clusterfortesting.gwwsyqj.mongodb.net/?retryWrites=true&w=majority',
+            'username': 'mks',
+            'password': 'Nsti12345',
+            'authMechanism': 'SCRAM-SHA-1',  # Update as needed
+        }
     }
+}
+
+
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
